@@ -1,18 +1,26 @@
+// importação e configuração do framework express 
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const flash = require('connect-flash');
-const db = require('./database');
+
+// importação de modulos nessecarios 
+const bodyParser = require('body-parser'); // analise de dados do corpo das requisições
+const session = require('express-session'); // gerenciamento de sessões de usuário
+const flash = require('connect-flash');  // exibição de mensagens flash na aplicação
+const db = require('./database'); // importação do modulo de banco de dandos
+
+// controlador de autenticação e livro
 const authController = require('./controllers/authController');
 const bookController = require('./controllers/bookController');
 
+//configurando o mecanismo de visualização como ejs
 app.set('view engine', 'ejs');
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); // analise de url codificada
 app.use(express.static('public'));
+
+// configuração de sessão
 app.use(session({
     secret: 'suaChaveSecreta',
-    resave: false,
+    resave: false,  // Evita regravar a sessão se nada foi modificado
     saveUninitialized: true
 }));
 app.use(flash());
