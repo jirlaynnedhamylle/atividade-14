@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Busca de Livros</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="wrapper">
+        <a href="/myaccount">Minha Conta</a>
+        <a href="/logout" class="btn-logout">Logout</a>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>Listagem de Livros</h1>
+      <h2 class="title-books">Busca de Livros</h2>
+      <form action="/search" method="GET">
+        <label for="title">Título:</label>
+        <input type="text" id="title" name="title" />
+        <label for="year">Ano:</label>
+        <input type="text" id="year" name="year" />
+        <button type="submit">Buscar</button>
+        <button type="button" onclick="limparBusca()" class="btn-clean">
+          Limpar
+        </button>
+      </form>
+      <div class="results">
+        <% if (typeof searchTitle !== 'undefined' || typeof searchYear !==
+        'undefined') { %> <% if (books && books.length > 0) { %>
+        <h2 class="title-books">Resultados da Busca:</h2>
+        <ul>
+          <% books.forEach(book => { %>
+          <li><%= book.title %> - <%= book.author %> (<%= book.year %>)</li>
+          <% }); %>
+        </ul>
+        <% } else { %>
+        <p>Nenhum livro encontrado para a busca.</p>
+        <% } %> <% } else { %>
+        <h2>Todos os Livros</h2>
+        <ul>
+          <% allBooks.forEach(book => { %>
+          <li><%= book.title %> - <%= book.author %> (<%= book.year %>)</li>
+          <% }); %>
+        </ul>
+        <% } %>
+      </div>
+      <script>
+        function limparBusca() {
+          document.getElementById("title").value = "";
+          document.getElementById("year").value = "";
+          // Limpar também os parâmetros da URL
+          const url = new URL(window.location.href);
+          url.searchParams.delete("title");
+          url.searchParams.delete("year");
+          history.pushState({}, "", url);
+        }
+      </script>
+    </main>
+  </body>
+</html>

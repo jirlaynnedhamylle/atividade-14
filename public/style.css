@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #fdeeff;
+}
+
+.container {
+    max-width: 1024px;
+    width: 90%;
+    margin: 50px auto;
+}
+
+h1 {
+    color: #4e0a51;
+    font-size: 40px;
+}
+
+h2.title-books {
+    color: #be45c3;
+}
+
+header {
+    background: #4e0a51;
+    color: #fff;
+    padding: 30px;
+}
+
+header a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    border: 1px solid #7e3581;
+    padding: 10px;
+    border-radius: 5px;
+    background: #36043d;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .btn-logout {
+    background: #750d37;
+    font-size: 18px;
+}
+
+header .wrapper {
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+form {
+    display: flex;
+    align-items: center;
+}
+
+form+p {
+    margin: 30px 0;
+}
+
+label,
+input,
+button {
+    display: block;
+    margin: 10px 0;
+}
+
+input,
+button {
+    margin: 0 30px 0 10px;
+    padding: 10px;
+}
+
+input {
+    border-radius: 5px;
+    border: none;
+    outline: none;
+}
+
+button {
+    cursor: pointer;
+    background-color: #4e0a51;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+}
+
+ul.list-users {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.list-users li::marker {
+    content: "👤";
+    font-size: 20px;
+}
+
+ul.list-users li {
+    margin-bottom: 5px;
+    padding-left: 10px;
+    width: 40%;
+}
+
+.results {
+    margin: 50px auto;
+}
+
+.results ul {
+    list-style-type: none;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.results ul li::marker {
+    content: "📒";
+    font-size: 20px;
+}
+
+.results li {
+    margin-bottom: 10px;
+    padding-left: 10px;
+}
+
+.results p {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.error {
+    color: red;
+}
+
+p.error-message {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+button.btn-clean {
+    background: #ff0000;
+}
+
+/* Estilo para o aviso de cookies */
+.cookie-disclaimer {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+.cookie-disclaimer p {
+    margin-bottom: 10px;
+}
+
+.cookie-disclaimer button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.cookie-disclaimer button:hover {
+    background-color: #0056b3;
+}

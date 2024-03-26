@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
+    <title>Cadastro</title>
+  </head>
+
+  <body>
+    <main class="container">
+      <div class="cookie-disclaimer" id="cookieDisclaimer">
+        <p>
+          Este site utiliza cookies para melhorar a sua experiência. Ao
+          continuar navegando, você concorda com a nossa política de cookies.
+        </p>
+        <button id="acceptCookies">OK</button>
+        <button id="closeCookieDisclaimer">Fechar</button>
+      </div>
+      <h1>Cadastro</h1>
+      <% if (typeof error !=='undefined' && error && error.length> 0) { %>
+      <p class="error-message"><%= error %></p>
+      <% } %> <% if (typeof successMessage !=='undefined' && successMessage &&
+      successMessage.length> 0) { %>
+      <p class="success-message"><%= successMessage %></p>
+      <% } %>
+
+      <form action="/register" method="POST">
+        <label for="username">Nome de usuário:</label>
+        <input type="text" id="username" name="username" required />
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required />
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <p>Ja possui conta? <a href="/login">Faça login</a></p>
+    </main>
+
+    <script src="/cookies.js"></script>
+  </body>
+</html>

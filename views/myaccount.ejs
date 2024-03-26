@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Conta</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="wrapper">
+        <a href="/">Início</a>
+        <form action="/logout" method="GET">
+          <button type="submit" class="btn-logout">Logout</button>
+        </form>
+      </nav>
+    </header>
+    <main class="container">
+      <h1>Minha Conta</h1>
+      <% if (error) { %>
+      <p class="error"><%= error %></p>
+      <% } %> <% if (user) { %>
+      <h2>Olá, <%= user.username %>!</h2>
+      <% } %>
+      <h3>Lista de usuários cadastrados no sistema:</h3>
+      <ul class="list-users">
+        <% allUsers.forEach(user => { %>
+        <li><%= user.username %></li>
+        <% }); %>
+      </ul>
+    </main>
+  </body>
+</html>
